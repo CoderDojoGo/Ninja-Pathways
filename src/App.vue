@@ -1,19 +1,22 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div class="ui inverted menu">
+      <a class="item">
+        <router-link to="/">Ninjas Dash</router-link>
+      </a>
+      <a class="item">
+        <router-link to="/ninja">Ninja Board</router-link>
+      </a>
+    </div>
+    <transition name="component-fade" mode="out-in">
+      <router-view></router-view>
+    </transition>
+  </div>  
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
 
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
+<script>
+  export default { }
 </script>
 
 <style>
@@ -23,6 +26,15 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-left: 2%;
+  margin-right: 2%;
+
+}
+.component-fade-enter-active, .component-fade-leave-active {
+  transition: opacity .3s ease;
+}
+.component-fade-enter, .component-fade-leave-to
+/* .component-fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>
