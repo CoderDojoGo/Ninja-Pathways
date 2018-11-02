@@ -1,5 +1,5 @@
 <template>
-    <div class="ui card">
+    <div class="ui card" id="ninjacard">
         <div class="image">
             <img src="../assets/ninja.png">
         </div>
@@ -26,4 +26,12 @@ export default {
     
 }
 </script>
+
+<style>
+#ninjacard{
+    margin: 0 auto;
+    padding: 0 auto
+}
+</style>
+
 

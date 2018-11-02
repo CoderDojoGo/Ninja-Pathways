@@ -1,34 +1,20 @@
 <template>
-    <div class="ui four column divided grid">
-    <div class="row">
-        <div class="column">
-            <ninja-card></ninja-card>
-        </div>
-        <div class="column">
-            <ninja-card></ninja-card>
-        </div>
-        <div class="column">
-            <ninja-card></ninja-card>
-        </div>
-        <div class="column">
-            <ninja-card></ninja-card>
-        </div>
+<div class="ui stackable right aligned grid">
+  <div class="center aligned four column row">
+    <div class="column">
+        <ninja-card></ninja-card>
     </div>
-    <div class="row">
-        <div class="column">
-            <ninja-card></ninja-card>
-        </div>
-        <div class="column">
-            <ninja-card></ninja-card>
-        </div>
-        <div class="column">
-            <ninja-card></ninja-card>
-        </div>
-        <div class="column">
-            <ninja-card></ninja-card>
-        </div>
+    <div class="column">
+        <ninja-card></ninja-card>
     </div>
-    </div>
+    <div class="column">
+        <ninja-card></ninja-card>
+    </div>    
+    <div class="column">
+        <ninja-card></ninja-card>
+    </div>    
+  </div>
+</div>
 </template>
 
 <script>
@@ -39,3 +25,10 @@
     }
   }
 </script>
+
+<style scoped>
+    .column {
+        margin: auto;
+        text-align: center;
+    }
+</style>
