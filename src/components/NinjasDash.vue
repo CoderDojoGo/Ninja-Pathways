@@ -14,7 +14,8 @@
                     </div>
                 </div>
                 <div class="column">
-                    
+                    <h2>Scratch Team</h2>
+                    <ninja-list :ninjas="persons"></ninja-list>
                 </div>
             </div>
             <div class="ui vertical divider">
@@ -32,7 +33,8 @@
 <script> 
     import NinjaCard  from "./NinjaCard.vue";     
     import NinjaSearch  from "./NinjaSearch.vue";     
-    import NinjaPie from "./NinjasPie.vue";       
+    import NinjaPie from "./NinjasPie.vue";   
+    import NinjaList from "./NinjasList.vue";        
 
     import Ninja from "../js/ninja";
 
@@ -54,7 +56,8 @@
         components: {
             NinjaCard,
             NinjaSearch,
-            NinjaPie
+            NinjaPie,
+            NinjaList
         },
         computed:{
             person : {
