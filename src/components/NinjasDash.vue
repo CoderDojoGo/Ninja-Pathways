@@ -13,7 +13,9 @@
             </div>
             <div class="column">
                 <h2>Scratch Team</h2>
-                <ninja-list :ninjas="ninjas"></ninja-list>
+                <transition-group appear name="list" tag="p">
+                    <ninja-list :ninjas="ninjas" key="ninjas.username"></ninja-list>
+                </transition-group>
             </div>
         </div>
     </div>
@@ -66,3 +68,17 @@
         }
     }
 </script>
+
+<style>
+.list-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+.list-enter-active, .list-leave-active {
+  transition: all 1s;
+}
+.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(30px);
+}
+</style>
