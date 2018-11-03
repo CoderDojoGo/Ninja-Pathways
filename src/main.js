@@ -8,7 +8,20 @@ Vue.config.productionTip = false
 
 Vue.use(VueRouter)
 
-// 3. Create the router
+Vue.mixin({
+  data: function() {
+    return {
+      get getNinjas() {
+        return [
+          { username: 'Sasuke', workshop: 'Scratch', level: '1' },
+          { username: 'Naruto', workshop: 'Scratch', level: '2' },
+          { username: 'Sakura', workshop: 'Scratch', level: '1' },
+        ]
+      }
+    }
+  }
+})
+
 const router = new VueRouter({
   mode: 'history',
   base: __dirname,

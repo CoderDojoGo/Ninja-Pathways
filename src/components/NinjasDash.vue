@@ -1,38 +1,25 @@
 <template>
-    <div>
-
-        <div class="ui segment">
-            <div class="ui two column very relaxed grid">
-                <div class="column">
-                    <div class="container">
-                        <div class="Chart__list">
-                            <div class="Chart">
-                            <h2>Ninjas Skills</h2>
-                            <ninja-pie :chart-data="datacollection"></ninja-pie>
-                            </div>
+    <div class="ui segment">
+        <div class="ui two column stackable internally celled grid">
+            <div class="column">
+                <div class="container">
+                    <div class="Chart__list">
+                        <div class="Chart">
+                        <h2>Ninjas Skills</h2>
+                        <ninja-pie :chart-data="datacollection"></ninja-pie>
                         </div>
                     </div>
                 </div>
-                <div class="column">
-                    <h2>Scratch Team</h2>
-                    <ninja-list :ninjas="persons"></ninja-list>
-                </div>
             </div>
-            <div class="ui vertical divider">
-                Scratch
+            <div class="column">
+                <h2>Scratch Team</h2>
+                <ninja-list :ninjas="ninjas"></ninja-list>
             </div>
-        </div>
-        <ninja-search @search="search"></ninja-search>
-        <div class="result">
-            <ninja-card v-model="person" v-if="found"></ninja-card> 
-
         </div>
     </div>
 </template>
 
 <script> 
-    import NinjaCard  from "./NinjaCard.vue";     
-    import NinjaSearch  from "./NinjaSearch.vue";     
     import NinjaPie from "./NinjasPie.vue";   
     import NinjaList from "./NinjasList.vue";        
 
@@ -42,51 +29,24 @@
     export default {
         data(){
             return {
-                text: "",
-                found: false,
                 ninja: new Ninja(),
-                ninjas: [
-                    { username: 'Sasuke', workshop: 'Maker', level: '1' },
-                    { username: 'Naruto', workshop: 'Maker', level: '2' },
-                    { username: 'Sakura', workshop: 'Maker', level: '1' },
-                ],
                 datacollection: null
             }
         },
         components: {
-            NinjaCard,
-            NinjaSearch,
             NinjaPie,
             NinjaList
         },
         computed:{
-            person : {
+            ninjas : {
                 get() {
-                    return this.ninja
-                },
-                set(value) {
-                    this.ninja = value
+                    return this.getNinjas
                 }
-            },
-            persons : {
-                get() {
-                    return this.ninjas
-                },
-                set(value) {
-                    this.ninjas = value
-                }                
             }
         },
         methods:{
-            search(text){
-                let result = this.persons.filter(x => x.username === text)
-                if(result.length > 0){
-                    this.found=true
-                    this.person = result.find(x => x.username === text)
-                }
-            },
             fillData () {
-                    let lvl = this.persons.map(x => x.level)
+                    let lvl = this.ninjas.map(x => x.level)
                     
                     this.datacollection = {
                     labels: ['LVL 1', 'LVL 2', 'LVL 3'],

@@ -13,7 +13,7 @@
 <script>
 export default {
     props:{
-        ninjas: Object
+        ninjas: Array
     }
 }
 </script>

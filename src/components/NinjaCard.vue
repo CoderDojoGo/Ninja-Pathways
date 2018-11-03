@@ -27,13 +27,8 @@ export default {
     props:{
         value: Object
     },
-    data: function () {
-        return {
-            ninja: JSON.parse(JSON.stringify(this.value))
-        }
-    },
     computed:{
-
+        ninja() { return this.value }
     }
 }
 </script>
