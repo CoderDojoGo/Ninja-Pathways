@@ -8,7 +8,7 @@
                         <div class="Chart__list">
                             <div class="Chart">
                             <h2>Ninjas Skills</h2>
-                            <ninja-pie></ninja-pie>
+                            <ninja-pie :chart-data="datacollection"></ninja-pie>
                             </div>
                         </div>
                     </div>
@@ -35,31 +35,20 @@
     import NinjaPie from "./NinjasPie.vue";       
 
     import Ninja from "../js/ninja";
-    
-    let data = {
-        labels: ['Running', 'Swimming', 'Eating', 'Cycling'],
-        datasets: [{
-            data: [20, 10, 4, 2]
-        }]
-    }
-    let options = {
-        scale: {
-            // Hides the scale
-            display: false
-        }
-    };    
-    let ninjas = [
-        { username: 'Sasuke', workshop: 'Maker', level: '1' },
-        { username: 'Naruto', workshop: 'Maker', level: '1' },
-        { username: 'Sakura', workshop: 'Maker', level: '1' },
-    ];
+
 
     export default {
         data(){
             return {
                 text: "",
                 found: false,
-                ninja: new Ninja()
+                ninja: new Ninja(),
+                ninjas: [
+                    { username: 'Sasuke', workshop: 'Maker', level: '1' },
+                    { username: 'Naruto', workshop: 'Maker', level: '2' },
+                    { username: 'Sakura', workshop: 'Maker', level: '1' },
+                ],
+                datacollection: null
             }
         },
         components: {
@@ -75,16 +64,42 @@
                 set(value) {
                     this.ninja = value
                 }
-            } 
+            },
+            persons : {
+                get() {
+                    return this.ninjas
+                },
+                set(value) {
+                    this.ninjas = value
+                }                
+            }
         },
         methods:{
             search(text){
-                let result = ninjas.filter(x => x.username === text)
+                let result = this.persons.filter(x => x.username === text)
                 if(result.length > 0){
                     this.found=true
                     this.person = result.find(x => x.username === text)
                 }
+            },
+            fillData () {
+                    let lvl = this.persons.map(x => x.level)
+                    
+                    this.datacollection = {
+                    labels: ['LVL 1', 'LVL 2', 'LVL 3'],
+                    datasets: [{
+                        data: [
+                            lvl.filter(x => x === "1").length, 
+                            lvl.filter(x => x === "2").length, 
+                            lvl.filter(x => x === "3").length
+                        ],
+                        backgroundColor: ['#ff6384', '#36a2eb', '#cc65fe']
+                    }]
+                }
             }
+        },
+        mounted () {
+            this.fillData()
         }
     }
 </script>

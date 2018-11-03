@@ -1,22 +1,17 @@
 <script>
-import { Doughnut } from 'vue-chartjs'
+import { Doughnut, mixins } from 'vue-chartjs'
+const { reactiveProp } = mixins
 
 export default {
-    extends: Doughnut,
+    extends: Doughnut, 
+    mixins: [reactiveProp],
+    props:  ['options'],
+    computed: {
+    },
     mounted () {
-        console.log("test")
-        this.renderChart({
-            labels: ['Lvl 1', 'Lvl 2', 'Lvl 3'],
-            datasets: [{
-                data: [200, 100, 50],
-                backgroundColor: ['#ff6384', '#36a2eb', '#cc65fe']
-            }],
-        }, 
-        {
-
-        }) 
-
-    }
+        this.renderChart(this.chartData, this.options)
+    },
+    
 }
 </script>
 
