@@ -4,9 +4,9 @@
             <img src="../assets/ninja.png">
         </div>
         <div class="content">
-            <a class="header">Kakashi</a>
+            <a class="header">{{ ninja.username }}</a>
             <div class="meta">
-            <span class="date">Maker LVL 2</span>
+                <span class="date">{{ ninja.workshop }} - {{ ninja.level }}</span>
             </div>
             <div class="description">
                 
@@ -22,8 +22,19 @@
 </template>
 
 <script>
+
 export default {
-    
+    props:{
+        value: Object
+    },
+    data: function () {
+        return {
+            ninja: JSON.parse(JSON.stringify(this.value))
+        }
+    },
+    computed:{
+
+    }
 }
 </script>
 

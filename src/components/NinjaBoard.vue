@@ -1,5 +1,5 @@
 <template>
-    <div class="ui items">
+    <div class="ui items" id="ninja">
         <div class="item">
             <div class="image">
                 <img src="../assets/ninja.png">
@@ -28,5 +28,7 @@ export default {
 
 
 <style>
-
+    #ninja{
+        margin: 0 auto
+    }
 </style>
