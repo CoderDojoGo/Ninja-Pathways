@@ -43,7 +43,7 @@
         },
         methods:{
             search(){
-                let result = result.find(x => x.username === this.text)
+                let result = ninjas.filter(x => x.username === this.text)
                 if(result.length > 0){
                     this.found=true
                     console.log( this.person)
