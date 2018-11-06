@@ -1,26 +1,16 @@
 import Vue from 'vue'
+import './plugins/vuetify'
 import App from './App.vue'
 import VueRouter from 'vue-router'
+import VueResource from 'vue-resource'
 import NinjasDash from './components/NinjasDash'
 import NinjaBoard from './components/NinjaBoard'
+
 
 Vue.config.productionTip = false
 
 Vue.use(VueRouter)
-
-Vue.mixin({
-  data: function() {
-    return {
-      get getNinjas() {
-        return [
-          { username: 'Sasuke', workshop: 'Scratch', level: '1' },
-          { username: 'Naruto', workshop: 'Scratch', level: '2' },
-          { username: 'Sakura', workshop: 'Scratch', level: '1' },
-        ]
-      }
-    }
-  }
-})
+Vue.use(VueResource)
 
 const router = new VueRouter({
   mode: 'history',
