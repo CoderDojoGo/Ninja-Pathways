@@ -1,6 +1,6 @@
 <template>
     <div class="ui left aligned celled list">
-        <div class="item" v-for="ninja in ninjas.slice(0, 5)" :key="ninja.username">
+        <div class="item left aligned" v-for="ninja in ninjas.slice(0, 5)" :key="ninja.username">
             <img class="ui avatar image" src="../assets/ninja.png">
             <div class="content">
                 <div class="ui left floated header">{{ ninja.username }}</div>
