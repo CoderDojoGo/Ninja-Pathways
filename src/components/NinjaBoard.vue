@@ -1,16 +1,5 @@
 <template>
-    <div class="ui segment">
-        <div class="ui two column stackable internally celled grid">
-            <div class="column">
-                <ninja-search @search="search"></ninja-search>
-            </div>
-            <div class="column">
-                <transition name="fade">
-                    <ninja-card :value="ninja" v-if="show"></ninja-card> 
-                </transition>
-            </div>
-        </div>
-    </div>
+
 </template>
 
 
