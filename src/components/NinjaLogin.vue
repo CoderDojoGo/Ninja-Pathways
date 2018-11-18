@@ -52,6 +52,9 @@
     }),
     props: {
       source: String
-    }
+    },
+    mounted () {
+        this.$store.dispatch('ninjasModule/getAllNinjasAync')
+    }      
   }
 </script>

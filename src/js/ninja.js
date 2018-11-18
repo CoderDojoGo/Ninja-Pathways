@@ -5,7 +5,8 @@ class Ninja {
         this.workshop = 'Maker',
         this.level = 2,
         this.password = "1234",
-        this.role = "user"
+        this.role = "user",
+        this.avatar = "../assets/ninja.png"
     }
 }
 

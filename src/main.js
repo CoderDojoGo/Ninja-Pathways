@@ -21,7 +21,14 @@ Vue.config.productionTip = false
 Vue.use(VueRouter)
 Vue.use(VueResource)
 Vue.use(VueSession)
-Vue.use(Vuetify)
+Vue.use(Vuetify,  {
+  theme: {
+    primary: '#3f51b5',
+    secondary: '#b0bec5',
+    accent: '#8c9eff',
+    error: '#b71c1c'
+  }
+})
 
 const router = new VueRouter({
   mode: 'history',
@@ -32,16 +39,16 @@ const router = new VueRouter({
     { path: '/login', name: 'login', component: NinjaLogin }
   ]
 })
+
 let yes = true;
+
 router.beforeEach((to, from, next) => {
   if(yes){
     yes = false;
     next({name: 'login'})
-
   } 
   else
     next();
-  
 })
 
 new Vue({
